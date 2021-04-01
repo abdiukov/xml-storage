@@ -38,25 +38,25 @@ namespace CreateNewXml
         public void RemoveElement(string toRemove)
         {
             string[] fields = toRemove.Split('|');
-            string[] first_last = fields[0].Split();
+            string[] firstLastNames = fields[0].Split();
             XmlNodeList students = root.SelectNodes("student");
 
-            foreach (XmlNode n in students)
+            foreach (XmlNode node in students)
             {
-                if ((n.SelectSingleNode("studentName/firstName").InnerText == first_last[0]) &&
-                    (n.SelectSingleNode("studentName/lastName").InnerText == first_last[1]))
+                if ((node.SelectSingleNode("studentName/firstName").InnerText == firstLastNames[0]) &&
+                    (node.SelectSingleNode("studentName/lastName").InnerText == firstLastNames[1]))
                 {
-                    root.RemoveChild(n);
+                    root.RemoveChild(node);
                 }
             }
             studentDoc.Save(FILE_LOCATION_XML);
             studentDoc.Load(FILE_LOCATION_XML);
         }
 
-        public void AddElement(string firstName, string lastName, string course, string startDate, string Duration)
+        public void AddElement(string firstName, string lastName, string course, string startDate, string duration)
         {
             if (firstName.Length > 0 && lastName.Length > 0 && course.Length > 0
-    && startDate.Length > 0 && Duration.Length > 0)
+    && startDate.Length > 0 && duration.Length > 0)
             {
                 XmlNode student = studentDoc.CreateElement("student");
                 root.AppendChild(student);
@@ -81,7 +81,7 @@ namespace CreateNewXml
                 student.AppendChild(nodeStartDate);
 
                 nodeDuration = studentDoc.CreateElement("Duration");
-                nodeDuration.InnerText = Duration;
+                nodeDuration.InnerText = duration;
                 student.AppendChild(nodeDuration);
 
                 studentDoc.Save(FILE_LOCATION_XML);
@@ -91,16 +91,16 @@ namespace CreateNewXml
         public string DisplayAll()
         {
             XmlNodeList students = root.SelectNodes("student");
-            string tmp = "";
-            foreach (XmlNode n in students)
+            string output = "";
+            foreach (XmlNode node in students)
             {
-                tmp += "Name: " + n.SelectSingleNode("studentName/firstName").InnerText + " "
-                    + n.SelectSingleNode("studentName/lastName").InnerText + " | "
-                    + "Course: " + n.SelectSingleNode("courseName").InnerText + Environment.NewLine
-                    + "Start Date : " + n.SelectSingleNode("startDate").InnerText + Environment.NewLine
-                    + "Duration : " + n.SelectSingleNode("Duration").InnerText + Environment.NewLine;
+                output += "Name: " + node.SelectSingleNode("studentName/firstName").InnerText + " "
+                    + node.SelectSingleNode("studentName/lastName").InnerText + " | "
+                    + "Course: " + node.SelectSingleNode("courseName").InnerText + Environment.NewLine
+                    + "Start Date : " + node.SelectSingleNode("startDate").InnerText + Environment.NewLine
+                    + "Duration : " + node.SelectSingleNode("Duration").InnerText + Environment.NewLine;
             }
-            return tmp;
+            return output;
         }
 
 
@@ -110,13 +110,13 @@ namespace CreateNewXml
             string[] output = new string[students.Count];
             int i = 0;
 
-            foreach (XmlNode n in students)
+            foreach (XmlNode node in students)
             {
-                output[i] = (n.SelectSingleNode("studentName/firstName").InnerText + " "
-                    + n.SelectSingleNode("studentName/lastName").InnerText + " | "
-                    + "Course: " + n.SelectSingleNode("courseName").InnerText
-                    + "Start Date : " + n.SelectSingleNode("startDate").InnerText
-                    + "Duration : " + n.SelectSingleNode("Duration").InnerText);
+                output[i] = (node.SelectSingleNode("studentName/firstName").InnerText + " "
+                    + node.SelectSingleNode("studentName/lastName").InnerText + " | "
+                    + "Course: " + node.SelectSingleNode("courseName").InnerText
+                    + "Start Date : " + node.SelectSingleNode("startDate").InnerText
+                    + "Duration : " + node.SelectSingleNode("Duration").InnerText);
                 i++;
             }
             return output;
