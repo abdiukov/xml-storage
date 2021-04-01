@@ -31,6 +31,10 @@
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxDuration = new System.Windows.Forms.TextBox();
+            this.textBoxStartDate = new System.Windows.Forms.TextBox();
             this.comboBoxCourses = new System.Windows.Forms.ComboBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
@@ -47,10 +51,6 @@
             this.panelList = new System.Windows.Forms.Panel();
             this.textBoxDetails = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxStartDate = new System.Windows.Forms.TextBox();
-            this.textBoxDuration = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panelAdd.SuspendLayout();
             this.panelRemove.SuspendLayout();
             this.panelList.SuspendLayout();
@@ -66,7 +66,7 @@
             this.buttonRemove.TabIndex = 0;
             this.buttonRemove.Text = "Remove element";
             this.buttonRemove.UseVisualStyleBackColor = true;
-            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            this.buttonRemove.Click += new System.EventHandler(this.ButtonRemove_Click);
             // 
             // buttonAdd
             // 
@@ -78,7 +78,7 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Add element";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // panelAdd
             // 
@@ -99,6 +99,46 @@
             this.panelAdd.Size = new System.Drawing.Size(367, 169);
             this.panelAdd.TabIndex = 1;
             this.panelAdd.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(35, 121);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 18);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Duration";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 92);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 18);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Start Date";
+            // 
+            // textBoxDuration
+            // 
+            this.textBoxDuration.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDuration.Location = new System.Drawing.Point(104, 121);
+            this.textBoxDuration.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxDuration.Name = "textBoxDuration";
+            this.textBoxDuration.Size = new System.Drawing.Size(122, 25);
+            this.textBoxDuration.TabIndex = 6;
+            // 
+            // textBoxStartDate
+            // 
+            this.textBoxStartDate.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxStartDate.Location = new System.Drawing.Point(104, 92);
+            this.textBoxStartDate.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxStartDate.Name = "textBoxStartDate";
+            this.textBoxStartDate.Size = new System.Drawing.Size(122, 25);
+            this.textBoxStartDate.TabIndex = 5;
             // 
             // comboBoxCourses
             // 
@@ -142,7 +182,7 @@
             this.buttonAddElement.TabIndex = 4;
             this.buttonAddElement.Text = "Add element";
             this.buttonAddElement.UseVisualStyleBackColor = true;
-            this.buttonAddElement.Click += new System.EventHandler(this.buttonAddElement_Click);
+            this.buttonAddElement.Click += new System.EventHandler(this.ButtonAddElement_Click);
             // 
             // label5
             // 
@@ -221,7 +261,7 @@
             this.buttonRemoveElement.TabIndex = 4;
             this.buttonRemoveElement.Text = "Remove element";
             this.buttonRemoveElement.UseVisualStyleBackColor = true;
-            this.buttonRemoveElement.Click += new System.EventHandler(this.buttonRemoveElement_Click);
+            this.buttonRemoveElement.Click += new System.EventHandler(this.ButtonRemoveElement_Click);
             // 
             // panelDisp
             // 
@@ -241,7 +281,7 @@
             this.buttonList.TabIndex = 0;
             this.buttonList.Text = "List";
             this.buttonList.UseVisualStyleBackColor = true;
-            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
+            this.buttonList.Click += new System.EventHandler(this.ButtonList_Click);
             // 
             // panelList
             // 
@@ -277,51 +317,11 @@
             this.label6.Text = "List all";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxStartDate
-            // 
-            this.textBoxStartDate.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStartDate.Location = new System.Drawing.Point(104, 92);
-            this.textBoxStartDate.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxStartDate.Name = "textBoxStartDate";
-            this.textBoxStartDate.Size = new System.Drawing.Size(122, 25);
-            this.textBoxStartDate.TabIndex = 5;
-            // 
-            // textBoxDuration
-            // 
-            this.textBoxDuration.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDuration.Location = new System.Drawing.Point(104, 121);
-            this.textBoxDuration.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxDuration.Name = "textBoxDuration";
-            this.textBoxDuration.Size = new System.Drawing.Size(122, 25);
-            this.textBoxDuration.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 92);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 18);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Start Date";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(35, 121);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 18);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Duration";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 409);
+            this.ClientSize = new System.Drawing.Size(383, 233);
             this.Controls.Add(this.panelList);
             this.Controls.Add(this.panelRemove);
             this.Controls.Add(this.panelDisp);
@@ -330,6 +330,8 @@
             this.Controls.Add(this.buttonList);
             this.Controls.Add(this.buttonAdd);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(399, 272);
+            this.MinimumSize = new System.Drawing.Size(399, 272);
             this.Name = "Form1";
             this.Text = "Student XML doc - create, add, remove";
             this.panelAdd.ResumeLayout(false);
