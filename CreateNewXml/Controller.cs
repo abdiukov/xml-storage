@@ -114,9 +114,9 @@ namespace CreateNewXml
             {
                 output[i] = (node.SelectSingleNode("studentName/firstName").InnerText + " "
                     + node.SelectSingleNode("studentName/lastName").InnerText + " | "
-                    + "Course: " + node.SelectSingleNode("courseName").InnerText
-                    + "Start Date : " + node.SelectSingleNode("startDate").InnerText
-                    + "Duration : " + node.SelectSingleNode("Duration").InnerText);
+                    + "Course: " + node.SelectSingleNode("courseName").InnerText + " "
+                    + "Start Date : " + node.SelectSingleNode("startDate").InnerText + " "
+                    + "Duration : " + node.SelectSingleNode("Duration").InnerText) + " ";
                 i++;
             }
             return output;
