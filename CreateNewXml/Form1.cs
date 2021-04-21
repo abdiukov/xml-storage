@@ -51,7 +51,7 @@ namespace CreateNewXml
             string firstName, lastName, course, startDate, duration;
             firstName = textBoxFirstName.Text;
             lastName = textBoxLastName.Text;
-            course = comboBoxCourses.SelectedItem.ToString();
+            course = comboBoxCourses.Text;
             startDate = textBoxStartDate.Text;
             duration = textBoxDuration.Text;
 
